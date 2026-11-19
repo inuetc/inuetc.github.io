@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inu Etc — Writer, Developer, Marketer, Traveler</title>
+<meta name="description" content="Inu Etc: writer, blogger, web developer, creator, marketer and traveler. Founder of Inuidea.com and Inu Etc Digital Solutions. Work with me, book a call, or support my work.">
+<meta property="og:title" content="Inu Etc — Writer, Developer, Marketer, Traveler">
+<meta property="og:description" content="I help you build high-converting websites, strong brands, and smart online systems to grow your business.">
+<meta property="og:image" content="assets/dp.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/dp.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --ink:#1a1712; --muted:#6f6759; --line:#e8e1d5;
+    --card:#ffffff; --green:#1e7a4c; --green-dark:#14532d; --amber:#e8a13c;
+    --radius:18px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Manrope',system-ui,sans-serif;
+    background:var(--bg); color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 22px}
+
+  /* hero */
+  header{padding:64px 0 8px;text-align:center}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--green-dark);background:#e5f2ea;border:1px solid #cfe6d8;
+    padding:7px 14px;border-radius:999px;
+  }
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .avatar{
+    width:132px;height:132px;border-radius:50%;object-fit:cover;
+    margin:26px auto 18px;display:block;
+    border:4px solid #fff;box-shadow:0 8px 30px rgba(26,23,18,.14);
+  }
+  h1{
+    font-family:'Fraunces',serif;font-weight:600;
+    font-size:clamp(2.4rem,7vw,3.2rem);line-height:1.08;letter-spacing:-.01em;
+  }
+  .tagline{
+    margin-top:12px;font-size:1.08rem;color:var(--muted);font-weight:500;
+    max-width:30ch;margin-left:auto;margin-right:auto;
+  }
+  .tagline em{font-style:normal;color:var(--ink);font-weight:700;border-bottom:2px solid var(--amber)}
+  .cta-row{display:flex;gap:12px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    font-weight:700;font-size:.95rem;text-decoration:none;
+    padding:13px 26px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:var(--ink);color:#fff;box-shadow:0 6px 18px rgba(26,23,18,.22)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(26,23,18,.26)}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--ink)}
+
+  .socials{display:flex;gap:10px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+  .socials a{
+    width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+    background:#fff;border:1px solid var(--line);color:var(--muted);
+    transition:all .15s ease;
+  }
+  .socials a:hover{color:var(--ink);border-color:var(--ink);transform:translateY(-2px)}
+  .socials svg{width:18px;height:18px;fill:currentColor}
+
+  /* sections */
+  section{padding:44px 0 0}
+  .kicker{
+    font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--green);margin-bottom:6px;
+  }
+  h2{font-family:'Fraunces',serif;font-weight:600;font-size:1.6rem;margin-bottom:18px}
+
+  /* link cards */
+  .cards{display:flex;flex-direction:column;gap:12px}
+  .card{
+    display:flex;align-items:center;gap:16px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;text-decoration:none;color:var(--ink);
+    transition:all .16s ease;
+  }
+  .card:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(26,23,18,.10);border-color:#d8cfbf}
+  .card .ico{
+    flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+    background:#f3eee4;color:var(--ink);
+  }
+  .card .ico svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .card.featured .ico{color:#fff}
+  .card .txt{flex:1;min-width:0}
+  .card .txt b{display:block;font-size:1rem;font-weight:800}
+  .card .txt span{display:block;font-size:.86rem;color:var(--muted);margin-top:1px}
+  .card .arrow{flex:none;color:var(--muted);font-weight:800;transition:transform .15s ease}
+  .card:hover .arrow{transform:translateX(3px);color:var(--green)}
+  .card.featured{background:var(--green-dark);border-color:var(--green-dark);color:#fff}
+  .card.featured .txt span{color:#bfe0cd}
+  .card.featured .ico{background:rgba(255,255,255,.12)}
+  .card.featured .arrow{color:#bfe0cd}
+
+  /* about */
+  .about p{color:#453e33;margin-bottom:14px;font-size:.98rem}
+  .about p b{color:var(--ink)}
+
+  /* gallery */
+  .gallery{
+    display:flex;gap:12px;overflow-x:auto;padding:6px 2px 18px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  }
+  .gallery::-webkit-scrollbar{height:6px}
+  .gallery::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+  .gallery img{
+    height:230px;width:auto;border-radius:14px;scroll-snap-align:start;
+    box-shadow:0 4px 14px rgba(26,23,18,.10);
+  }
+
+  footer{
+    margin-top:56px;padding:34px 0 44px;text-align:center;
+    border-top:1px solid var(--line);color:var(--muted);font-size:.88rem;
+  }
+  footer .sites{display:flex;gap:18px;justify-content:center;margin-bottom:12px;flex-wrap:wrap}
+  footer .sites a{color:var(--ink);font-weight:700;text-decoration:none}
+  footer .sites a:hover{color:var(--green)}
+  footer .heart{color:var(--green)}
+
+  @media (max-width:480px){
+    header{padding:48px 0 4px}
+    .gallery img{height:190px}
+    .card{padding:15px 16px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="badge"><span class="dot"></span>Available for projects</span>
+    <img class="avatar" src="assets/dp.jpg" alt="Inu Etc">
+    <h1>Inu Etc</h1>
+    <p class="tagline">Writer, developer, marketer &amp; traveler. <em>Work smart, earn passively, do what you love.</em></p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://inuetc.com/work-with-me/">Work with me</a>
+      <a class="btn btn-ghost" href="https://inuetc.com/call">Book a call</a>
+    </div>
+    <nav class="socials" aria-label="Social profiles">
+      <a href="https://instagram.com/inuetc" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.9.1s-3.6 0-4.9-.1c-3.3-.1-4.8-1.7-4.9-4.9-.1-1.3-.1-1.6-.1-4.8s0-3.6.1-4.8C2.3 4 3.9 2.4 7.1 2.3 8.4 2.2 8.8 2.2 12 2.2zm0 4.6a5.2 5.2 0 1 0 0 10.4 5.2 5.2 0 0 0 0-10.4zm0 8.6a3.4 3.4 0 1 1 0-6.8 3.4 3.4 0 0 1 0 6.8zm5.4-8.9a1.2 1.2 0 1 0 0-2.4 1.2 1.2 0 0 0 0 2.4z"/></svg></a>
+      <a href="https://twitter.com/inuetc" aria-label="X (Twitter)"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L2.8 2h6.4l4.4 5.9L18.9 2zm-1.1 18.1h1.7L7.1 3.8H5.3l12.5 16.3z"/></svg></a>
+      <a href="https://www.linkedin.com/in/inuetc" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.6 0 4.3 2.4 4.3 5.5v6.3zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5z"/></svg></a>
+      <a href="https://www.youtube.com/inuetc" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
+      <a href="https://pinterest.com/inuetc" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.7 19.3c-.1-.8-.2-2 0-2.9l1.2-5s-.3-.6-.3-1.5c0-1.4.8-2.4 1.8-2.4.9 0 1.3.6 1.3 1.4 0 .9-.6 2.2-.9 3.4-.2 1 .5 1.9 1.5 1.9 1.9 0 3.3-2 3.3-4.8 0-2.5-1.8-4.3-4.4-4.3a4.6 4.6 0 0 0-4.8 4.6c0 .9.3 1.9.8 2.4.1.1.1.2.1.3l-.3 1.1c0 .2-.2.2-.4.1-1.2-.6-2-2.4-2-3.9 0-3.2 2.3-6.1 6.7-6.1 3.5 0 6.3 2.5 6.3 5.9 0 3.5-2.2 6.3-5.3 6.3-1 0-2-.5-2.3-1.2l-.6 2.4c-.2.9-.8 2-1.2 2.6A10 10 0 1 0 12 2z"/></svg></a>
+      <a href="https://facebook.com/inuetc" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4h-3v-3.5h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 1-2 2V12h3.3l-.5 3.5h-2.8v8.4A12 12 0 0 0 24 12z"/></svg></a>
+      <a href="https://www.threads.net/@inuetc" aria-label="Threads"><svg viewBox="0 0 24 24"><path d="M12.2 2h-.2c-4.7.1-7.7 3.1-7.9 7.6-.1 2.3.5 4.6 1.7 6.4 1.3 1.9 3.3 3.2 5.6 3.7 1.6.4 3.3.3 4.9-.1 1.3-.4 2.4-1.2 3.1-2.3.7-1.2 1-2.6.7-4-.3-1.5-1.3-2.7-2.7-3.3-.6-.3-1.3-.4-2-.4-.4 0-.8 0-1.2.1.2-.7.6-1.2 1.2-1.5.5-.3 1.1-.4 1.7-.3.5.1 1 .4 1.3.8l1.9-1.5c-.7-.8-1.6-1.3-2.7-1.5-1.1-.2-2.2 0-3.2.5-1.4.8-2.3 2.2-2.7 3.9-.3 1.4-.3 2.9 0 4.3.1.9.5 1.8 1.1 2.4.6.6 1.4.9 2.2.9.9 0 1.7-.4 2.3-1 .5-.6.8-1.4.8-2.2 0-.4-.1-.8-.3-1.1.5.5.8 1.2.9 1.9.1 1-.1 2-.6 2.8-.6.9-1.4 1.5-2.4 1.8-1.3.4-2.7.4-4 .1-1.9-.4-3.5-1.5-4.6-3.1-1-1.5-1.5-3.4-1.4-5.2.2-3.7 2.6-6.2 6.5-6.3h.2c2 0 3.8.7 5.2 2 1.3 1.3 2.1 3 2.3 4.9l2-.3C21.4 5.5 17.3 2 12.2 2zm2.4 12.3c-.4.5-1 .7-1.6.6-.5 0-.9-.3-1.1-.7-.2-.5-.3-1-.3-1.6 0-.4 0-.8.1-1.2h.9c.5 0 1 .1 1.4.4.4.3.6.8.6 1.3 0 .4-.1.9-.4 1.2h.4z"/></svg></a>
+      <a href="https://medium.com/@inuetc" aria-label="Medium"><svg viewBox="0 0 24 24"><path d="M13.1 12a6.6 6.6 0 1 1-13.2 0A6.6 6.6 0 0 1 13.1 12zm7.4 0c0 3.6-1.5 6.5-3.3 6.5s-3.3-2.9-3.3-6.5 1.5-6.5 3.3-6.5 3.3 2.9 3.3 6.5zm4.5 0c0 3.5-.6 6.3-1.3 6.3s-1.3-2.8-1.3-6.3.6-6.3 1.3-6.3 1.3 2.8 1.3 6.3z"/></svg></a>
+    </nav>
+  </header>
+
+  <section>
+    <p class="kicker">Important links</p>
+    <h2>Start here</h2>
+    <div class="cards">
+      <a class="card featured" href="https://inuetc.com/work-with-me/">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></span>
+        <span class="txt"><b>Work With Me</b><span>Hire me &amp; my team for websites, branding and growth</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://inuetc.com/call">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span>
+        <span class="txt"><b>Book a Call</b><span>Define goals, clear doubts, get actionable strategy</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://inuetc.gumroad.com">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+        <span class="txt"><b>Gumroad Shop</b><span>Digital products, guides and resources</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="http://www.buymeacoffee.com/inuetc">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4z"/><path d="M7 2v2M11 2v2"/></svg></span>
+        <span class="txt"><b>Buy Me a Coffee</b><span>Support my work with a coffee</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://inuetc.com/support/">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>
+        <span class="txt"><b>Support</b><span>More ways to support what I build</span></span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="card" href="https://inuetc.com/contact/">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+        <span class="txt"><b>Contact</b><span>Say hello — I usually reply within a day</span></span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="about">
+    <p class="kicker">About</p>
+    <h2>Who is Inu Etc?</h2>
+    <p>I'm <b>Inu Etc</b>, the founder of <b>Inuidea.com</b> and <b>Inu Etc Digital Solutions</b>, and the co-founder of <b>Raw Travel Project</b> and Zillion Media. I'm a writer, blogger, web developer, creator, online business consultant, marketer, and traveler.</p>
+    <p>As a <b>generalist</b>, I combine a wide range of skills — from website design and development to course creation, social media management, content creation, and digital marketing. I started freelancing in 2018 and founded Inuidea.com in 2019.</p>
+    <p>I'm a digital nomad and an aspiring mountaineer — in 2023 I completed the Basic Mountaineering Course at ABVIMAS, Manali. In everything I do, my goal is simple: <b>create a life of freedom, creativity, and impact.</b></p>
+  </section>
+
+  <section>
+    <p class="kicker">On the road</p>
+    <h2>Travels &amp; treks</h2>
+    <div class="gallery">
+      <img src="assets/p19069528.webp" alt="Trekking in the mountains" loading="lazy">
+      <img src="assets/p16765094.webp" alt="By a mountain river" loading="lazy">
+      <img src="assets/p20077565.webp" alt="On the trail" loading="lazy">
+      <img src="assets/p26746019.webp" alt="Resting on a bamboo bridge" loading="lazy">
+      <img src="assets/p30562812.webp" alt="Filming on a cliffside" loading="lazy">
+      <img src="assets/p14473242.webp" alt="Green valleys" loading="lazy">
+    </div>
+  </section>
+
+  <footer>
+    <div class="sites">
+      <a href="https://inuetc.com/">inuetc.com</a>
+      <a href="https://inuidea.com/">inuidea.com</a>
+      <a href="https://rawtravelproject.com/">rawtravelproject.com</a>
+    </div>
+    <p>© 2018–2026 Inu Etc · Made with <svg class="heart" viewBox="0 0 24 24" style="width:13px;height:13px;vertical-align:-2px;fill:var(--green)"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg> by Inu Etc</p>
+  </footer>
+
+</div>
+</body>
+</html>
