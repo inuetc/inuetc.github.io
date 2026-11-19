@@ -115,21 +115,37 @@
 
   /* about */
   .about p{color:#44403c;margin-bottom:14px;font-size:.95rem}
-  .about p b{color:var(--ink);font-weight:600}
+  .about p b,.about p strong{color:var(--ink);font-weight:600}
   .about a{color:var(--red);text-decoration:none;font-weight:500}
   .about a:hover{color:var(--red-dark)}
 
   /* gallery */
+  .gallery-frame{position:relative}
   .gallery{
-    display:flex;gap:12px;overflow-x:auto;padding:6px 2px 18px;
-    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    display:flex;gap:12px;overflow-x:auto;padding:6px 2px 16px;
+    scroll-snap-type:x mandatory;scrollbar-width:none;
+    -webkit-overflow-scrolling:touch;cursor:grab;touch-action:pan-x pan-y;
+    border-radius:14px;outline-offset:5px;
   }
-  .gallery::-webkit-scrollbar{height:6px}
-  .gallery::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
+  .gallery::-webkit-scrollbar{display:none}
+  .gallery.dragging{cursor:grabbing;scroll-snap-type:none;user-select:none}
   .gallery img{
-    height:230px;width:auto;border-radius:14px;scroll-snap-align:start;
+    flex:none;height:230px;width:auto;max-width:100%;object-fit:cover;
+    border-radius:14px;scroll-snap-align:start;user-select:none;
     box-shadow:0 4px 14px rgba(28,25,23,.10);
   }
+  .gallery-arrow{
+    position:absolute;top:calc(50% - 7px);transform:translateY(-50%);z-index:1;
+    width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+    display:grid;place-items:center;background:#fff;color:var(--ink);cursor:pointer;
+    box-shadow:0 3px 14px #1c191726;transition:background .15s,color .15s;
+  }
+  .gallery-arrow svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .gallery-arrow:hover:not(:disabled){background:var(--red);color:#fff;border-color:var(--red)}
+  .gallery-arrow:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+  .gallery-arrow:disabled{opacity:.5;cursor:default}
+  .gallery-prev{left:10px}.gallery-next{right:10px}
+  .gallery-hint{font-size:.78rem;color:var(--muted);text-align:center;margin-top:2px;font-weight:400}
 
   footer{
     margin-top:58px;padding:36px 0 46px;text-align:center;
@@ -209,15 +225,24 @@
   <section class="about">
     <p class="kicker">About</p>
     <h2>Who is Inu Etc?</h2>
-    <p>I'm <b>Inu Etc</b>, the founder of <a href="https://inuidea.com/">Inuidea.com</a> and <a href="https://inuetc.com/">Inu Etc Digital Solutions</a>, and the co-founder of <a href="https://rawtravelproject.com/">Raw Travel Project</a> and Zillion Media. I'm a writer, blogger, web developer, creator, online business consultant, marketer, and traveler.</p>
-    <p>As a <b>generalist</b>, I combine a wide range of skills — from website design and development to course creation, social media management, content creation, and digital marketing. I started <b>freelancing</b> in 2018 and founded <a href="https://inuidea.com/">Inuidea.com</a> in 2019.</p>
-    <p>I'm a <b>digital nomad</b> and an aspiring mountaineer — in 2023 I completed the Basic Mountaineering Course at ABVIMAS, Manali. In everything I do, my goal is simple: <b>create a life of freedom, creativity, and impact.</b></p>
+    <p>I'm <strong>Inu Etc</strong>, the founder of <a href="https://inuidea.com/">Inuidea.com</a> and <a href="https://inuetc.com/">Inu Etc Digital Solutions</a>, and the co-founder of <a href="https://rawtravelproject.com/">Raw Travel Project</a> and <a href="https://zillion.media/">Zillion Media</a>.</p>
+    <p>I'm a writer, blogger, web developer, creator, online business consultant, marketer, and traveler.</p>
+    <p>As a <strong>generalist</strong>, I combine a wide range of skills, from website design and development to course creation, social media management, content creation, and digital marketing.</p>
+    <p>With all these skills, I can be the all-in-one solution for your online business needs!</p>
+    <p>I like traveling, I'm a <a href="https://inuidea.com/digital-nomad/">digital nomad</a>, and I want to travel the world. In the upcoming years, I'd like to build a team and produce high-quality content while traveling the world.</p>
+    <p>I started <a href="https://inuidea.com/guide-to-freelancing/">freelancing</a> in 2018, and founded <a href="https://inuidea.com/">Inuidea.com</a> in 2019. I want to build more <a href="https://inuidea.com/online-business-ideas/">online businesses</a> in the future so that I can work from anywhere and earn money to travel the world.</p>
+    <p>Passionate about exploration, I'm not only a seasoned traveler but also an aspiring mountaineer. In 2023, I successfully completed the <a href="https://inuidea.com/basic-mountaineering-course/">Basic Mountaineering Course</a> at the Atal Bihari Vajpayee Institute of Mountaineering and Allied Sports in Manali.</p>
+    <p>In everything I do, whether it's building businesses, crafting content, or exploring new places, my goal is simple: create a life of freedom, creativity, and impact.</p>
+    <p>I believe in working smart, earning passively, and doing what I love.</p>
+    <p>If you're someone who dreams of turning your skills into an online business, building a personal brand, or simply living life on your own terms, I'm here to help you make that happen.</p>
   </section>
 
   <section>
     <p class="kicker">On the road</p>
     <h2>Travels &amp; treks</h2>
-    <div class="gallery">
+    <div class="gallery-frame" role="region" aria-roledescription="carousel" aria-label="Travel photos">
+    <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous photo" aria-controls="travel-gallery" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
+    <div class="gallery" id="travel-gallery" tabindex="0" aria-label="Travel photos. Swipe, drag, or use the arrow keys to browse.">
       <img src="assets/p19069528.webp" alt="Trekking in the mountains" loading="lazy">
       <img src="assets/p16765094.webp" alt="By a mountain river" loading="lazy">
       <img src="assets/p20077565.webp" alt="On the trail" loading="lazy">
@@ -225,12 +250,66 @@
       <img src="assets/p30562812.webp" alt="Filming on a cliffside" loading="lazy">
       <img src="assets/p14473242.webp" alt="Green valleys" loading="lazy">
     </div>
+    <button class="gallery-arrow gallery-next" type="button" aria-label="Next photo" aria-controls="travel-gallery"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+    </div>
+    <p class="gallery-hint">Drag or swipe to explore</p>
   </section>
 
   <footer>
-    <p>© 2018–2026 Inu Etc · Made with <svg viewBox="0 0 24 24" style="width:13px;height:13px;vertical-align:-2px;fill:var(--red)"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg> by Inu Etc</p>
+    <p>Made with <svg viewBox="0 0 24 24" style="width:13px;height:13px;vertical-align:-2px;fill:var(--red)"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg> by Inu Etc</p>
   </footer>
 
 </div>
+<script>
+(() => {
+  const gallery = document.querySelector('.gallery');
+  const prev = document.querySelector('.gallery-prev');
+  const next = document.querySelector('.gallery-next');
+  const photos = Array.from(gallery.querySelectorAll('img'));
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const update = () => {
+    prev.disabled = gallery.scrollLeft <= 2;
+    next.disabled = gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth - 2;
+  };
+  const move = direction => {
+    const left = gallery.scrollLeft;
+    const positions = photos.map(photo => photo.offsetLeft - gallery.offsetLeft - 2);
+    const target = direction > 0
+      ? positions.find(position => position > left + 4) ?? gallery.scrollWidth
+      : positions.slice().reverse().find(position => position < left - 4) ?? 0;
+    gallery.scrollTo({ left: target, behavior: motion.matches ? 'instant' : 'smooth' });
+  };
+  prev.addEventListener('click', () => move(-1));
+  next.addEventListener('click', () => move(1));
+  gallery.addEventListener('keydown', event => {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    move(event.key === 'ArrowRight' ? 1 : -1);
+  });
+  let drag = null;
+  gallery.addEventListener('pointerdown', event => {
+    if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    drag = {x: event.clientX, scroll: gallery.scrollLeft};
+    gallery.setPointerCapture(event.pointerId);
+    gallery.classList.add('dragging');
+  });
+  gallery.addEventListener('pointermove', event => {
+    if (!drag) return;
+    gallery.scrollLeft = drag.scroll + drag.x - event.clientX;
+  });
+  const release = () => {
+    drag = null;
+    gallery.classList.remove('dragging');
+    update();
+  };
+  gallery.addEventListener('pointerup', release);
+  gallery.addEventListener('pointercancel', release);
+  gallery.addEventListener('dragstart', event => event.preventDefault());
+  gallery.addEventListener('scroll', update, {passive: true});
+  window.addEventListener('resize', update);
+  photos.forEach(photo => photo.addEventListener('load', update));
+  update();
+})();
+</script>
 </body>
 </html>
